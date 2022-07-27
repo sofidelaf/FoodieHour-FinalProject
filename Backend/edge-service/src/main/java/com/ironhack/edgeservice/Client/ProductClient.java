@@ -1,45 +1,44 @@
-package com.ironhack.edgeservice.Controller.Interfaces;
+package com.ironhack.edgeservice.Client;
 
-import com.ironhack.edgeservice.Classes.OrderItem;
 import com.ironhack.edgeservice.Classes.Product;
-import com.ironhack.edgeservice.Classes.PurchaserUser;
-import com.ironhack.edgeservice.Classes.SellerUser;
 import com.ironhack.edgeservice.Controller.DTO.*;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public interface EdgeController {
+@FeignClient("product-service")
+public interface ProductClient {
+    @GetMapping("/products")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Product> findAll();
 
-    // -- Purchaser user's methods -- //
-    PurchaserUser createPurchaserUser(@RequestBody PurchaserUser purchaserUser);
-    OrderDTO addItemToCart(@RequestBody OrderItem orderItem);
-    OrderDTO removeItemFromCart(@PathVariable Long id);
+    @GetMapping("/products/{productName}")
+    public Product findProductByProductName(@PathVariable String productName);
 
-    // -- Seller user's methods -- //
-
-    SellerUser createSellerUser(@RequestBody SellerUser sellerUser);
-    Double sumWeights();
-
-    // -- Product's methods -- //
-
-    List<Product> findAll();
-
-    Product findProductByProductName(@PathVariable String productName);
-
+    @PostMapping("/products")
     public Product createProduct(@RequestBody Product product);
 
+    @DeleteMapping("/products/{id}")
     public void removeProductById(@PathVariable Long id);
 
+    @PatchMapping("/products/update-product")
     public void updateProduct(@RequestParam(name = "product_id") Long id, @RequestBody ProductDTO productDTO);
 
+    @PatchMapping("/products/update-product-name")
     public void updateProductName(@RequestParam(name = "product_id") Long id, @RequestBody ProductNameDTO productNameDTO);
 
+
+    @PatchMapping("/products/update-quantity")
     public void updateProductQuantity(@RequestParam(name = "product_id") Long id, @RequestBody ProductQuantityDTO productQuantityDTO);
 
+
+    @PatchMapping("/products/update-weight")
     public void updateProductWeight(@RequestParam(name = "product_id") Long id, @RequestBody ProductWeightDTO productWeightDTO);
 
+
+    @PatchMapping("/products/update-price")
     public void updateProductPrice(@RequestParam(name = "product_id") Long id, @RequestBody ProductPriceDTO productPriceDTO);
 
 }

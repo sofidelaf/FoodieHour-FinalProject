@@ -1,6 +1,8 @@
 package com.ironhack.edgeservice.Classes;
 
 
+import com.ironhack.edgeservice.Model.User;
+
 public class PurchaserUser extends User {
 
     // --- Properties --- //

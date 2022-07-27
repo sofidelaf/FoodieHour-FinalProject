@@ -1,9 +1,15 @@
-package com.ironhack.edgeservice.Classes;
+package com.ironhack.edgeservice.Model;
 
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
 public class User {
 
     // --- Properties --- //
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String username;
@@ -11,7 +17,6 @@ public class User {
     private String password;
 
     private String name;
-
 
     // --- Constructor methods --- //
 
@@ -58,4 +63,5 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
 }

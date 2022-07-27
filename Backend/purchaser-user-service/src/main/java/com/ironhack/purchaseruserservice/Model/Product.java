@@ -25,10 +25,6 @@ public class Product {
 
     private BigDecimal price;
 
-    @OneToOne
-    @JoinColumn(name = "order_item_id")
-    private OrderItem orderItem;
-
     // --- Constructor methods --- //
 
     public Product() {

@@ -15,31 +15,27 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonBackReference
-    private User user;
-
     private String productName;
 
     private int quantity;
 
-    private double weightPerKg;
+    private double weightInKg;
 
     private BigDecimal price;
+
+    private String image;
 
     // --- Constructor methods --- //
 
     public Product() {
     }
 
-    public Product(User user, String productName, int quantity, double weightPerKg, BigDecimal price) {
-        this.user = user;
+    public Product(String productName, int quantity, double weightInKg, BigDecimal price, String image) {
         this.productName = productName;
         this.quantity = quantity;
-        this.weightPerKg = weightPerKg;
+        this.weightInKg = weightInKg;
         this.price = price;
+        this.image = image;
     }
 
     // --- Getters and setters --- //
@@ -50,14 +46,6 @@ public class Product {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getProductName() {
@@ -76,12 +64,12 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public double getWeightPerKg() {
-        return weightPerKg;
+    public double getWeightInKg() {
+        return weightInKg;
     }
 
     public void setWeightPerKg(double weightPerKg) {
-        this.weightPerKg = weightPerKg;
+        this.weightInKg = weightInKg;
     }
 
     public BigDecimal getPrice() {
@@ -90,5 +78,13 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

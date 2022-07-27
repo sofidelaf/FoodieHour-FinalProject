@@ -1,6 +1,6 @@
 package com.ironhack.edgeservice.Classes;
 
-import com.ironhack.edgeservice.Enum.SellerType;
+import com.ironhack.edgeservice.Model.User;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class SellerUser extends User {
 
     private String address;
 
-    private SellerType sellerType;
+    private String sellerType;
     private List<Product> productList;
 
     // --- Constructor methods --- //
@@ -22,7 +22,7 @@ public class SellerUser extends User {
     public SellerUser() {
     }
 
-    public SellerUser(String username, String password, String name, String email, Long phoneNumber, String address, SellerType sellerType, List<Product> productList) {
+    public SellerUser(String username, String password, String name, String email, Long phoneNumber, String address, String sellerType, List<Product> productList) {
         super(username, password, name);
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -58,11 +58,11 @@ public class SellerUser extends User {
         this.address = address;
     }
 
-    public SellerType getSellerType() {
+    public String getSellerType() {
         return sellerType;
     }
 
-    public void setSellerType(SellerType sellerType) {
+    public void setSellerType(String sellerType) {
         this.sellerType = sellerType;
     }
 

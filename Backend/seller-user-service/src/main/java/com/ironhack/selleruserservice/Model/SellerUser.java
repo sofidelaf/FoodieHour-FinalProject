@@ -1,7 +1,5 @@
 package com.ironhack.selleruserservice.Model;
 
-import com.ironhack.selleruserservice.Enum.SellerType;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,31 +15,22 @@ public class SellerUser extends User {
 
     private String address;
 
-    private SellerType sellerType;
+    private String sellerType;
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "productName", column = @Column(name = "product_name")),
-            @AttributeOverride(name = "quantity", column = @Column(name = "quantity")),
-            @AttributeOverride(name = "weightPerKg", column = @Column(name = "weight_per_kg")),
-            @AttributeOverride(name = "price", column = @Column(name = "price"))
-    })
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<Product> productList;
+    @Column(name = "product_id")
+    private Long productId;
 
     // --- Constructor methods --- //
 
     public SellerUser() {
     }
 
-    public SellerUser(String username, String password, String name, String email, Long phoneNumber, String address, SellerType sellerType, List<Product> productList) {
+    public SellerUser(String username, String password, String name, String email, Long phoneNumber, String address, String sellerType, List<Product> productList) {
         super(username, password, name);
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.sellerType = sellerType;
-        this.productList = productList;
     }
 
     // --- Getters and setters --- //
@@ -71,20 +60,12 @@ public class SellerUser extends User {
         this.address = address;
     }
 
-    public SellerType getSellerType() {
+    public String getSellerType() {
         return sellerType;
     }
 
-    public void setSellerType(SellerType sellerType) {
+    public void setSellerType(String sellerType) {
         this.sellerType = sellerType;
-    }
-
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> cart) {
-        this.productList = productList;
     }
 
 }

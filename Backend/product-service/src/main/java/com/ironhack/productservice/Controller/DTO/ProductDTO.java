@@ -1,40 +1,22 @@
-package com.ironhack.edgeservice.Classes;
+package com.ironhack.productservice.Controller.DTO;
 
 import java.math.BigDecimal;
 
-// @Embeddable
-public class Product {
+public class ProductDTO {
 
-    // --- Properties --- //
-
-    private Long id;
     private String productName;
+
     private int quantity;
+
     private double weightInKg;
+
     private BigDecimal price;
-    private String image;
 
-    // --- Constructor methods --- //
-
-    public Product() {
-    }
-
-    public Product(String productName, int quantity, double weightInKg, BigDecimal price, String image) {
+    public ProductDTO(String productName, int quantity, double weightInKg, BigDecimal price) {
         this.productName = productName;
         this.quantity = quantity;
         this.weightInKg = weightInKg;
         this.price = price;
-        this. image = image;
-    }
-
-    // --- Getters and setters --- //
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getProductName() {
@@ -67,12 +49,5 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public String getImage() {
-        return image;
-    }
-    public void setImage(String image) {
-        this.image = image;
     }
 }

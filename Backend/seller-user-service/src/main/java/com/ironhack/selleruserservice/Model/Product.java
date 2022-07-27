@@ -17,11 +17,6 @@ public class Product {
     @Column(name = "product_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonBackReference
-    private User user;
-
     private String productName;
 
     private int quantity;
@@ -35,8 +30,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(User user, String productName, int quantity, double weightInKg, BigDecimal price) {
-        this.user = user;
+    public Product(String productName, int quantity, double weightInKg, BigDecimal price) {
         this.productName = productName;
         this.quantity = quantity;
         this.weightInKg = weightInKg;
@@ -51,14 +45,6 @@ public class Product {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getProductName() {
