@@ -1,4 +1,4 @@
-# Final Project
+# FoodieHour
 
 [FoodieHour](/Frontend/Images/logo2.jpg)
 
