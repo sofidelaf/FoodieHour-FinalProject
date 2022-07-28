@@ -1,4 +1,4 @@
-# Final Project
+# FoodieHour - Final Project Ironhack
 
 [FoodieHour](/Frontend/Images/logo2.jpg)
 
