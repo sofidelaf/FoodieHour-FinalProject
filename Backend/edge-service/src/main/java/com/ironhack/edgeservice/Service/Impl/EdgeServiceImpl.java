@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 public class EdgeServiceImpl implements EdgeService {
     @Override
     public void updateProduct(Long id, ProductDTO productDTO) {
-
     }
-
     @Override
     public void updateProductName(Long id, ProductNameDTO productNameDTO) {
 
