@@ -26,8 +26,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(PurchaserUser purchaserUser, List<OrderItem> orderItems) {
-        this.purchaserUser = purchaserUser;
+    public Order(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
 
